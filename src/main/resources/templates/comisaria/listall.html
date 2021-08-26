@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main role="main">
+	<section class="container">
+
+		<div class="card text-center">
+			<div class="card-header">Police Station</div>
+			<div class="card-body">
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Denominación</th>
+							<th scope="col">Distrito</th>
+							<th scope="col">Dirección</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="comisaria: ${comisarias}">
+							<th scope="row" th:text="${comisaria.id}">1</th>
+							<td th:text="${comisaria.denominacion}">.</td>
+							<td th:text="${comisaria.distrito}">.</td>
+							<td th:text="${comisaria.direccion}">.</td>
+							<td>
+								<a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+								<a th:href="@{'/onewebs/policestations/edit/' + ${comisaria.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+								<a th:href="@{'/onewebs/policestations/del/' + ${comisaria.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="card-footer text-center">
+				<a th:href="@{/onewebs/policestations/new}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+			</div>
+		</div>
+
+	</section>
+</main>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

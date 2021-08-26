@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Demo Project Covid-19">
+    <meta name="author" content="Programación en Web">
+    
+	<title>Detenidos - Covid19</title>
+	
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/chosen.min.css}">
+	<link rel="stylesheet" th:href="@{/css/fontawesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/solid.min.css}">	    
+    
+</head>
+<body>
+  	<header th:fragment="header">
+  		
+  		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+		  <a class="navbar-brand" href="#"><i class="fas fa-user-lock"></i> Detainee</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav">
+		      <li sec:authorize="hasRole('ROLE_COMMANDER')" class="nav-item">
+		        <a id="link-police" class="nav-link" th:href="@{/onewebs/policestations}">Police station</a>
+		      </li>
+		      <li sec:authorize="hasAnyRole('ROLE_POLICE', 'ROLE_COMMISSAR')" class="nav-item">
+		        <a name="link-detainee" class="nav-link" th:href="@{/onewebs/detainee}" aria-disabled="true">Detainee</a>
+		      </li>
+		      <li sec:authorize="isAuthenticated()" class="nav-item">
+		        <a class="nav-link" th:href="@{/onewebs/mulcts}" aria-disabled="true">Mulct</a>
+		      </li>
+		    </ul>
+		  </div>
+		  <span class="navbar-text">
+		  	<ul class="navbar-nav">
+		      <li  sec:authorize="isAnonymous()"  class="nav-item">
+			     <a class="btn btn-outline-warning"th:href="@{/onewebs/signup}" aria-disabled="true">Registrarse</a>
+			     <a class="btn btn-success"th:href="@{/onewebs/login}" aria-disabled="true">Iniciar Sesión</a>
+		      </li>
+		      <li sec:authorize="isAuthenticated()" class="nav-item">
+		        <a class="btn btn-secondary" th:href="@{/logout}" aria-disabled="true">Cerrar Sesión: <span sec:authentication="name">Username</span></a>
+		      </li>
+		    </ul>
+		    </span>
+		</nav>
+  		
+  	</header>
+  	<section>
+  		<h1>Hello, world!</h1>
+  	</section>
+  	<footer th:fragment="footer">
+  		
+  		<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	    <script th:src="@{/js/popper.min.js}"></script>
+	    <script th:src="@{/js/bootstrap.min.js}"></script>
+	    <script th:src="@{/js/chosen.jquery.min.js}"></script>
+	    <script th:src="@{/js/fontawesome.min.js}"></script>
+	    <script th:src="@{/js/sweetalert.min.js}"></script>
+  	</footer>    
+</body>
+</html>

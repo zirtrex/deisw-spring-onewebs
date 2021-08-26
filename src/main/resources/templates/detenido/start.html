@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main role="main">
+	<section class="container">
+
+		<div class="card text-center">
+			<div class="card-header">Detainee</div>
+			<div class="card-body">
+				<p th:text="${mensajeOK}" class="bg-success text-white"></p>
+				<p th:text="${mensajeError}" class="bg-danger text-white"></p>				
+				
+				<form th:action="@{/onewebs/detainee/search}" method="post" th:object="${detenido}" class="form-inline">
+					<div class="form-group">
+				      <label for="apellidos">Apellidos : </label>
+				      <input type="text" class="form-control" th:field="*{apellidos}" placeholder="Ingrese el apellidos a buscar">
+				      <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Buscar </button>
+				    </div>				
+				</form>
+				
+				<hr>
+			
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Dni</th>
+							<th scope="col">Apellidos</th>
+							<th scope="col">Nombres</th>
+							<th scope="col">Fecha nacimiento</th>
+							<th scope="col">Distrito</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="detenido: ${detenidos}">
+							<th scope="row" th:text="${detenido.id}">1</th>
+							<td th:text="${detenido.dni}">.</td>
+							<td th:text="${detenido.apellidos}">.</td>
+							<td th:text="${detenido.nombres}">.</td>
+							<td th:text="${detenido.fechaNacimiento}">.</td>
+							<td th:text="${detenido.distrito}">.</td>
+							<td>
+								<a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+								<a sec:authorize="hasAuthority('ACCESS_EDITDETAINEE')" 
+									th:href="@{'/onewebs/detainee/edit/' + ${detenido.id}}" 
+									class="btn btn-warning"> 
+									<i class="fas fa-edit"></i> 
+								</a>
+								<a sec:authorize="hasAuthority('ACCESS_ADDDETAINEE')" 
+									th:href="@{'/onewebs/detainee/del/' + ${detenido.id}}" class="btn btn-danger"> 
+									<i class="fas fa-trash"></i> 
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="card-footer text-center">
+				<a sec:authorize="hasAuthority('ACCESS_ADDDETAINEE')"
+					th:href="@{/onewebs/detainee/new}" class="btn btn-primary">
+					<i class="fas fa-plus"></i> Nuevo
+				</a>
+			</div>
+		</div>
+
+	</section>
+</main>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

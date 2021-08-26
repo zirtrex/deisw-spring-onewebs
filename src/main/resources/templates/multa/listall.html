@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main role="main">
+	<section class="container">
+
+		<div class="card text-center">
+			<div class="card-header">Mulcts</div>
+			<div class="card-body">
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Detenido</th>
+							<th scope="col">Fecha detención</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Infracción</th>
+							<th scope="col">Monto</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="multa: ${multas}">
+							<th scope="row" th:text="${multa.id}">1</th>
+							<td th:text="${multa.detenido.dni + ': ' + multa.detenido.apellidos}">.</td>
+							<td th:text="${multa.fechaDetencion}">.</td>
+							<td th:text="${multa.direccion}">.</td>
+							<td th:text="${multa.infraccion}">.</td>
+							<td th:text="${multa.monto}">.</td>
+							<td>
+								<a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+								<a th:href="@{'/onewebs/mulcts/edit/' + ${multa.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+								<a th:href="@{'/onewebs/mulcts/del/' + ${multa.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="card-footer text-center">
+				<a id="btn-nuevo-mulct" th:href="@{/onewebs/mulcts/new}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+			</div>
+		</div>
+
+	</section>
+</main>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

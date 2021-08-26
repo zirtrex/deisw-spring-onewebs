@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main role="main">
+	<section class="container">
+
+		<div class="card text-center">
+			<div class="card-header">New Police Station</div>
+			<div class="card-body text-left">
+			
+				<form th:action="@{/onewebs/policestations/save}" th:object="${comisaria}" method="post">
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="dni">Denominación</label>
+				      <input type="text" class="form-control" th:field="*{denominacion}" placeholder="Ingrese denominación">
+				    </div>
+				  </div>
+				  <div class="form-row">
+					  <div class="form-group col-md-6">
+					    <label for="distrito">Distrito</label>
+					    <input type="text" class="form-control" th:field="*{distrito}" placeholder="Ingrese el destrito de la comisara" >
+					  </div>
+					  <div class="form-group col-md-6">
+					    <label for="direccion">Direcion</label>
+					    <input type="text" class="form-control" th:field="*{direccion}" placeholder="Ingrese Dirección">
+					  </div>
+				  </div>
+				  
+				  
+				  <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Grabar </button>
+				  <a th:href="@{/onewebs/detainee}" class="btn btn-danger"><i class="fas fa-ban"></i> Cancelar</a>
+				</form>
+			
+			</div>
+			<div class="card-footer text-center">
+				
+			</div>
+		</div>
+
+	</section>
+</main>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
