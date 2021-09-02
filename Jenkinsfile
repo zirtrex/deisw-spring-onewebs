@@ -14,7 +14,7 @@ pipeline {
                  checkout scm
             }
         }
-		/*stage('Ejecutar Pruebas Unitarias'){
+		stage('Ejecutar Pruebas Unitarias'){
 			steps {
 				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.controller.StarterControllerTest"'
@@ -24,7 +24,7 @@ pipeline {
 			steps {
 				powershell 'mvn clean package'
 			}
-		}*/
+		}
     }
 	
     post {
