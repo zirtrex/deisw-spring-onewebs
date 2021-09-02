@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/zirtrex/deisw-spring-onewebs'
             }
         }
-		stage('Ejecutar Pruebas Unitarias'){
+		/*stage('Ejecutar Pruebas Unitarias'){
 			steps {
 				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.controller.StarterControllerTest"'
@@ -23,7 +23,7 @@ pipeline {
 			steps {
 				powershell 'mvn clean package'
 			}
-		}
+		}*/
     }
 	
     post {
