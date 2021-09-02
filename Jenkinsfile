@@ -4,7 +4,7 @@ pipeline {
 	environment {
 		imagename = 'zirtrex/deisw-spring-onewebs'
 		container = 'onewebs'
-		releasedVersion = getReleasedVersion()		
+		//releasedVersion = getReleasedVersion()
 	}
 	
     stages {
