@@ -31,10 +31,10 @@ pipeline {
             echo 'Hola!'
         }
 		success {
-			mail to: "zirtrex@live.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Si, se pasaron las pruebas."
+		    echo 'Todo bien!'
 		}
 		failure {
-			mail to: "zirtrex@live.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
+		    echo 'Falla!'
 		}
     }
 }
