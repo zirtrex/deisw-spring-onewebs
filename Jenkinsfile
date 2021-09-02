@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Verificar SCM') {
             steps {
-                git 'https://github.com/zirtrex/deisw-spring-onewebs'
+                 echo 'Pulling...' + env.BRANCH_NAME
+                 checkout scm
             }
         }
 		/*stage('Ejecutar Pruebas Unitarias'){
