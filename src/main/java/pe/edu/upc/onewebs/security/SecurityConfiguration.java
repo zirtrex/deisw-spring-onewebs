@@ -62,6 +62,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.exceptionHandling()
 				.accessDeniedHandler(loggingAccessDeniedHandler);
 
+		// add this line to use H2 web console
+		http.headers().frameOptions().disable();
+
 	}
 	
 	@Bean
