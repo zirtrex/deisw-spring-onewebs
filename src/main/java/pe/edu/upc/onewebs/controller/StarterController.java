@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/onewebs")
 public class StarterController {
 
+
 	@GetMapping
 	public String starter() {
 		return "index";
