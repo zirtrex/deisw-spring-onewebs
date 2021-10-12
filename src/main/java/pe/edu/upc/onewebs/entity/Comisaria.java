@@ -36,7 +36,7 @@ public class Comisaria {
 	@Column(name = "direccion", length = 40, nullable = false)
 	private String direccion; 
 	
-	// mappedBy: El objeto de relaci�n 
+	// mappedBy: El objeto de relacion
 	@ManyToMany(mappedBy = "comisarias")
 	private List<Detenido> detenidos;	
 	

@@ -1,15 +1,11 @@
-package pe.edu.upc.onewebs.controller;
-
+package pe.edu.upc.onewebs.unit.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pe.edu.upc.onewebs.controller.StarterController;
 
 public class StarterControllerTest {
-
-    /*@BeforeClass
-    public void setUp() throws Exception {
-    }*/
 
     @Test
     @DisplayName(value = "testStarter -> Probar la carga inicial de la web")
@@ -37,5 +33,17 @@ public class StarterControllerTest {
         assertEquals(resultActual, resultReal); // Param1. Expected, Param2 Actual
     }
 
+    @Test
+    @DisplayName(value = "testAccessDenied -> Probar la carga del testAccessDenied")
+    public void testAccessDenied() {
+        // Give [ExplainYourInput] Arrange
+        StarterController starterController = new StarterController(); //Controlador el mismo
+        String[] paramArray = null;
+        String resultActual = "access-denied"; //Login es lo que devuelve el controlador
+        // When [WhatIsDone] Act
+        String resultReal = starterController.accessDenied(); //Aqui va el nombre del mtodo que queremos probar
+        // Then [ExpectedResult] Assert
+        assertEquals(resultActual, resultReal); // Param1. Expected, Param2 Actual
+    }
 
 }

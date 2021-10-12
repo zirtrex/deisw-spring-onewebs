@@ -1,3 +1,5 @@
+package pe.edu.upc.onewebs.ui;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.junit.runner.RunWith;
