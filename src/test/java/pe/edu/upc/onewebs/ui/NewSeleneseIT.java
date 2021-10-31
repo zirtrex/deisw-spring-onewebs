@@ -78,11 +78,10 @@ public class NewSeleneseIT {
         Assert.assertEquals("", mensaje.getText());
     }
 
-    /*@Test
-    public void testEditarEquipo() {
-
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
-
+    @Test
+    public void testLoginUsuario() {
+        //Obtener url
+        driver.get("http://localhost:8081/onewebs/login");
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
 
@@ -95,50 +94,23 @@ public class NewSeleneseIT {
 
         wait.until(pageLoadCondition);
 
-        WebElement nombre = driver.findElement(By.id("nombre"));
-        nombre.sendKeys(" - Editado");
-        WebElement marca = driver.findElement(By.id("marca"));
-        marca.sendKeys(" - Editado");
-        WebElement modelo = driver.findElement(By.id("modelo"));
-        modelo.sendKeys(" - Editado");
+        WebElement usuario = driver.findElement(By.id("inputUsername"));
+        usuario.sendKeys("zirtrex");
+        WebElement clave = driver.findElement(By.id("inputPassword"));
+        clave.sendKeys("123456");
 
-        WebElement btnSubmit = driver.findElement(By.id("submit"));
+        WebElement btnSubmit = driver.findElement(By.id("loginButton"));
         btnSubmit.click();
 
-        WebElement mensaje = driver.findElement(By.className("uk-alert-danger"));
+        //Tenemos que volver a esperar que cargue bien la página
+        WebDriverWait wait2 = new WebDriverWait(driver, 5);
+        wait2.until(pageLoadCondition);
+
+        WebElement mensaje = driver.findElement(By.id("logoutButton"));
         wait.until(ExpectedConditions.visibilityOf(mensaje));
 
-        Assert.assertEquals("Se ha editado el equipo correctamente", mensaje.getText());
-
-    }*/
-
-    /*@Test
-    public void testEliminarEquipo() {
-
-
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=2");
-
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
-        ExpectedCondition<Boolean> pageLoadCondition = new
-            ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver driver) {
-                    return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
-                }
-            };
-
-        wait.until(pageLoadCondition);
-
-        WebElement btnSubmit = driver.findElement(By.id("submit"));
-        btnSubmit.click();
-
-        WebElement mensaje = driver.findElement(By.className("uk-alert-danger"));
-        wait.until(ExpectedConditions.visibilityOf(mensaje));
-
-        Assert.assertEquals("Se ha eliminado el equipo correctamente", mensaje.getText());
-
-    }*/
+        Assert.assertEquals("Cerrar Sesión: zirtrex", mensaje. getText());
+    }
 
     @AfterClass
     public void liquidarDriver() {

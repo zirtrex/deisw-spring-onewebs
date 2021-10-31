@@ -43,7 +43,7 @@
 			     <a class="btn btn-success"th:href="@{/onewebs/login}" aria-disabled="true">Iniciar Sesión</a>
 		      </li>
 		      <li sec:authorize="isAuthenticated()" class="nav-item">
-		        <a class="btn btn-secondary" th:href="@{/logout}" aria-disabled="true">Cerrar Sesión: <span sec:authentication="name">Username</span></a>
+		        <a id="logoutButton" class="btn btn-secondary" th:href="@{/logout}" aria-disabled="true">Cerrar Sesión: <span sec:authentication="name">Username</span></a>
 		      </li>
 		    </ul>
 		    </span>
