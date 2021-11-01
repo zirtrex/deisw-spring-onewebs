@@ -2,7 +2,8 @@ package pe.edu.upc.onewebs.integration;
 
 import org.junit.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.*;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.autoconfigure.web.servlet.*;
 import org.springframework.boot.test.mock.mockito.*;
@@ -20,27 +21,27 @@ import pe.edu.upc.onewebs.DeiswSpringOnewebsApplication;
 import java.io.File;
 import java.nio.file.Files;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.containsString;
 
 @RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
 @SpringBootTest(
 		classes = DeiswSpringOnewebsApplication.class
 )
-public class StarterControllerTests {
+public class StarterControllerTest {
 
 	@Autowired
 	private WebApplicationContext wac; //Llamamos al contexto
 
+	@Autowired
 	private MockMvc mockMvc; //Creamos un mock
 
 	@Before
 	public void setUp() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build(); //Configuramos que el mocl use nuetro contexto web
+		//this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build(); //Configuramos que el mocl use nuetro contexto web
 	}
 
 	@Test
@@ -51,11 +52,9 @@ public class StarterControllerTests {
 		String html = new String(Files.readAllBytes(index.toPath())); //Esto puede ser usado si quieres comprobar la carga entera de una web html
 
 		this.mockMvc.perform(get("/onewebs")) //llamamos al mock y le pasamos el endpoint
-				.andDo(print()) //Imprimos el resultado po consola
 				.andExpect(status().isOk()) //Verificamos decuelva un 200
 				.andExpect(view().name("index")) //Nos aseguramos que cargue la vista correcta
-				.andExpect(content().string(containsString("Detenidos"))) //Y nos aseguramos que la web contnega la palabra detenidos
-				.andDo(print());
+				.andExpect(content().string(containsString("Detenidos"))); //Y nos aseguramos que la web contnega la palabra detenidos
 	}
 
 }
