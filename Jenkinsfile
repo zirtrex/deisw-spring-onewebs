@@ -28,7 +28,7 @@ pipeline {
 		stage ('3-jecutar Pruebas de Integracion') {
             steps {
                 powershell 'mvn clean'
-                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*Tests"'
+                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*Test"'
             }
         }
         stage ('4-Ejecutar Sonar') {
