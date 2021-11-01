@@ -33,7 +33,7 @@ pipeline {
         }
         stage ('4-Ejecutar Sonar') {
             steps {
-                powershell 'mvn clean verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d1'
+                powershell 'mvn clean verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
 		stage ('5-Ejecutar Spring Boot') {
