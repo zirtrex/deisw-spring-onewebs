@@ -36,11 +36,11 @@ pipeline {
                 powershell 'mvn clean verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
-		stage ('5-Ejecutar Spring Boot') {
+		/*stage ('5-Ejecutar Spring Boot') {
 			steps {
-				//powershell 'mvn spring-boot:run'
+				powershell 'mvn spring-boot:run'
 			}
-		}
+		}*/
 		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
             steps {
                 powershell 'mvn -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT" surefire:test'
