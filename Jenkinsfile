@@ -38,7 +38,7 @@ pipeline {
         }
 		stage ('5-Ejecutar Spring Boot') {
 			steps {
-				powershell 'mvn spring-boot:run'
+				//powershell 'mvn spring-boot:run'
 			}
 		}
 		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
