@@ -22,13 +22,13 @@ pipeline {
 		stage ('2-Ejecutar Pruebas Unitarias') {
 			steps {
 				powershell 'mvn clean'
-				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.unit.*"'
+				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.unit.*Test"'
 			}
 		}
 		stage ('3-jecutar Pruebas de Integracion') {
             steps {
                 powershell 'mvn clean'
-                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*"'
+                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*Tests"'
             }
         }
         stage ('4-Ejecutar Sonar') {
