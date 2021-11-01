@@ -53,7 +53,7 @@ public class StarterControllerTests {
 		this.mockMvc.perform(get("/onewebs")) //llamamos al mock y le pasamos el endpoint
 				.andDo(print()) //Imprimos el resultado po consola
 				.andExpect(status().isOk()) //Verificamos decuelva un 200
-				.andExpect(view().name("index2")) //Nos aseguramos que cargue la vista correcta
+				.andExpect(view().name("index")) //Nos aseguramos que cargue la vista correcta
 				.andExpect(content().string(containsString("Detenidos"))) //Y nos aseguramos que la web contnega la palabra detenidos
 				.andDo(print());
 	}

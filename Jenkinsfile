@@ -3,7 +3,7 @@ pipeline {
 	
 	environment {
 		imagename = 'zirtrex/deisw-spring-onewebs'
-		container = 'onewebs'
+		container = ' '
 		//releasedVersion = getReleasedVersion()
 	}
 
@@ -13,28 +13,44 @@ pipeline {
     }
 	
     stages {
-        stage('Verificar SCM') {
+        stage ('1-Verificar SCM') {
             steps {
                  echo 'Pulling...' + env.BRANCH_NAME
                  checkout scm
             }
         }
-		stage('Ejecutar Pruebas Unitarias'){
+		stage ('2-Ejecutar Pruebas Unitarias') {
 			steps {
 				powershell 'mvn clean'
-				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.controller.StarterControllerTest"'
+				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.unit.*"'
 			}
 		}
-		stage('Compilar Paquete'){
+		stage ('3-jecutar Pruebas de Integracion' {
+            steps {
+                powershell 'mvn clean'
+                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*"'
+            }
+        }
+        stage ('4-Ejecutar Sonar') {
+            steps {
+                powershell 'mvn clean verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d1'
+            }
+        }
+		stage ('5-Ejecutar Spring Boot') {
 			steps {
-				powershell 'mvn clean package'
+				powershell 'mvn spring-boot:run'
 			}
 		}
+		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
+            steps {
+                powershell 'mvn -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT" surefire:test'
+            }
+        }
     }
 	
     post {
         always {
-            echo 'Hola!'
+            echo 'Hola desde Jenkins!'
         }
 		success {
 		    echo 'Todo bien!'
@@ -43,10 +59,6 @@ pipeline {
 		    echo 'Falla!'
 		}
     }
-}
-
-def dockerCmd(args) {
-	powershell "docker ${args}"
 }
 
 def getReleasedVersion() {
