@@ -43,7 +43,7 @@ pipeline {
 		}*/
 		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
             steps {
-                powershell 'mvn -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT" surefire:test'
+                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
             }
         }
     }
