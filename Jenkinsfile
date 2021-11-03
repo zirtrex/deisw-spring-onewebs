@@ -45,7 +45,7 @@ pipeline {
                 }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
-                    powershell 'javaw -jar ./target/onewebs-1.0.jar'
+                    powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
                 }
             }
         }
