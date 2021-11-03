@@ -2,8 +2,12 @@ package pe.edu.upc.onewebs.ui;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
@@ -19,12 +23,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
-@RunWith(JUnit4.class)
 public class NewSeleneseIT {
 
     private WebDriver driver = null;
@@ -34,13 +33,14 @@ public class NewSeleneseIT {
     private String os = null;
     private String node = null;
 
-    @BeforeClass
+    @Before
     public void inicializarDriver() throws MalformedURLException{
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\usuario_devops\\Downloads\\deisw-spring-onewebs\\geckodriver.exe");
         driver = new FirefoxDriver();
     }
 
     @Test
+    @DisplayName(value = "testCrearUsuario -> testCrearUsuario")
     public void testCrearUsuario() {
         //Aquí obtenemos la url que queremos probar
         driver.get("http://localhost:8081/onewebs/signup");
@@ -112,7 +112,7 @@ public class NewSeleneseIT {
         Assert.assertEquals("Cerrar Sesión: zirtrex", mensaje. getText());
     }
 
-    @AfterClass
+    @After
     public void liquidarDriver() {
         driver.quit();
     }
