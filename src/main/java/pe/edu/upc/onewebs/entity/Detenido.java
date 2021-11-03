@@ -54,7 +54,7 @@ public class Detenido {
 	@Column(name = "distrito", length = 40, nullable = false)
 	private String distrito;
 	
-	// mappedBy: El objeto de relaci�n
+	// mappedBy: El objeto de relacion
 	// fetch: 
 	//@NotEmpty(message = "Un detenido debe tener un multa")
 	@JsonIgnoreProperties("detenido")

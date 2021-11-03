@@ -33,17 +33,22 @@ pipeline {
         }
         stage ('4-Ejecutar Sonar') {
             steps {
-                powershell 'mvn clean verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
+                powershell 'mvn clean jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
-		/*stage ('5-Ejecutar Spring Boot') {
+		stage ('5-Ejecutar Spring Boot') {
 			steps {
-				powershell 'mvn spring-boot:run'
+				powershell 'javaw -jar ./target/onewebs-1.0.jar'
 			}
-		}*/
+		}
 		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
             steps {
                 powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
+            }
+        }
+        stage ('7-Detener java') {
+            steps {
+                powershell 'wmic Path win32_process Where "CommandLine Like \'%onewebs-1.0.jar%\'" Call Terminate'
             }
         }
     }
