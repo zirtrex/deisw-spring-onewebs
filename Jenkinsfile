@@ -44,9 +44,9 @@ pipeline {
                     timeout(unit: 'SECONDS', time: 30)
                 }
             steps {
-                //catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE'){
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
                     powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
-                //}
+                }
             }
         }
 		stage ('7-Prueba de Aceptacion de usuario con Selenium') {
