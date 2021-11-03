@@ -39,20 +39,22 @@ pipeline {
                 powershell 'mvn jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
-        stage ('6-Ejecutar Spring Boot') {
-            /*options {
-                timeout(unit: 'SECONDS', time: 30)
-            }*/
-            steps {
-                //catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
-                    powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
-                //}
+        stage ('6-Ejecutar Spring Boot y Selenium') {
+            parallel {
+                stage('Ejecutar Spring Boot') {
+                    agent any  //run this stage on any available agent
+                    steps {
+                        echo 'Ejecutar Spring Boot'
+                        powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
+                    }
+                }
+                stage ('Prueba de Aceptacion de usuario con Selenium') {
+                    steps {
+                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
+                    }
+                }
             }
-        }
-		stage ('7-Prueba de Aceptacion de usuario con Selenium') {
-            steps {
-                powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
-            }
+
         }
         stage ('8-Detener java') {
             steps {
