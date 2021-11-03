@@ -24,7 +24,7 @@ pipeline {
                 powershell 'mvn clean'
             }
         }
-		stage ('3-Ejecutar Pruebas Unitarias') {
+		/*stage ('3-Ejecutar Pruebas Unitarias') {
 			steps {
 				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.unit.controller.*Test"'
 			}
@@ -38,14 +38,14 @@ pipeline {
             steps {
                 powershell 'mvn jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
-        }
+        }*/
         stage ('6-Ejecutar Spring Boot y Selenium') {
             parallel {
                 stage('Ejecutar Spring Boot') {
                     agent any  //run this stage on any available agent
                     steps {
                         echo 'Ejecutar Spring Boot'
-                        powershell 'java -jar "./target/onewebs-1.0.jar"'
+                        powershell 'java -jar ".\\target\\onewebs-1.0.jar"'
                         echo 'Prueba de Aceptacion de usuario con Selenium'
                         powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
                     }
