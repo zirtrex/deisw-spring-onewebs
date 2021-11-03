@@ -45,14 +45,16 @@ pipeline {
                     agent any  //run this stage on any available agent
                     steps {
                         echo 'Ejecutar Spring Boot'
-                        powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
-                    }
-                }
-                stage ('Prueba de Aceptacion de usuario con Selenium') {
-                    steps {
+                        powershell 'java -jar ./target/onewebs-1.0.jar'
+                        echo 'Prueba de Aceptacion de usuario con Selenium'
                         powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
                     }
                 }
+                /*stage ('Prueba de Aceptacion de usuario con Selenium') {
+                    steps {
+                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
+                    }
+                }*/
             }
 
         }
