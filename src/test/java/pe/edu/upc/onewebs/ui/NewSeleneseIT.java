@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
@@ -23,7 +24,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import pe.edu.upc.onewebs.DeiswSpringOnewebsApplication;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = DeiswSpringOnewebsApplication.class)
+@WebAppConfiguration
 public class NewSeleneseIT {
 
     private WebDriver driver = null;
