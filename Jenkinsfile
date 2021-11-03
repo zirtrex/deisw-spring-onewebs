@@ -40,8 +40,11 @@ pipeline {
             }
         }
         stage ('6-Ejecutar Spring Boot') {
+            options {
+                    timeout(unit: 'SECONDS', time: 30)
+                }
             steps {
-                timeout(unit: 'SECONDS', time: 30) {
+                catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
                     powershell 'javaw -jar ./target/onewebs-1.0.jar'
                 }
             }
