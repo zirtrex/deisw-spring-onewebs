@@ -41,7 +41,7 @@ pipeline {
         }
         stage ('6-Ejecutar Spring Boot') {
             options {
-                    timeout(unit: 'SECONDS', time: 30)
+                    timeout(unit: 'SECONDS', time: 90)
                 }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
