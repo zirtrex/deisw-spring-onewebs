@@ -40,13 +40,13 @@ pipeline {
             }
         }
         stage ('6-Ejecutar Spring Boot') {
-            options {
-                    timeout(unit: 'SECONDS', time: 30)
-                }
+            /*options {
+                timeout(unit: 'SECONDS', time: 30)
+            }*/
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
+                //catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
                     powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
-                }
+                //}
             }
         }
 		stage ('7-Prueba de Aceptacion de usuario con Selenium') {
