@@ -19,36 +19,39 @@ pipeline {
                  checkout scm
             }
         }
-		stage ('2-Ejecutar Pruebas Unitarias') {
+        stage ('2-Limpiar workspace') {
+            steps {
+                powershell 'mvn clean'
+            }
+        }
+		stage ('3-Ejecutar Pruebas Unitarias') {
 			steps {
-				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="pe.edu.upc.onewebs.unit.controller.*Test"'
 			}
 		}
-		stage ('3-jecutar Pruebas de Integracion') {
+		stage ('4-jecutar Pruebas de Integracion') {
             steps {
-                powershell 'mvn clean'
                 powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*Test"'
             }
         }
-        stage ('4-Ejecutar Sonar') {
+        stage ('5-Ejecutar Sonar') {
             steps {
-                powershell 'mvn clean jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
+                powershell 'mvn jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
-        timeout(unit: 'SECONDS', time: 30) {
-            stage ('5-Ejecutar Spring Boot') {
-                steps {
+        stage ('6-Ejecutar Spring Boot') {
+            steps {
+                timeout(unit: 'SECONDS', time: 30) {
                     powershell 'javaw -jar ./target/onewebs-1.0.jar'
                 }
             }
         }
-		stage ('6-Prueba de Aceptacion de usuario con Selenium') {
+		stage ('7-Prueba de Aceptacion de usuario con Selenium') {
             steps {
                 powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
             }
         }
-        stage ('7-Detener java') {
+        stage ('8-Detener java') {
             steps {
                 powershell 'wmic Path win32_process Where "CommandLine Like \'%onewebs-1.0.jar%\'" Call Terminate'
             }
