@@ -48,12 +48,12 @@ pipeline {
                         powershell 'mvn package'
                         powershell 'java -jar ./target/onewebs-1.0.jar'
                         echo 'Prueba de Aceptacion de usuario con Selenium'
-                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
+                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.LoginUsuarioTest"'
                     }
                 }
                 /*stage ('Prueba de Aceptacion de usuario con Selenium') {
                     steps {
-                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
+                        powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.LoginUsuarioTest"'
                     }
                 }*/
             }

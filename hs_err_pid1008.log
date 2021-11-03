@@ -27,7 +27,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -Dclassworlds.conf=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\bin\m2.conf -Dmaven.home=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\.. -Dlibrary.jansi.path=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\usuario_devops\Desktop\deisw-spring-onewebs org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=pe.edu.upc.onewebs.ui.NewSeleneseIT
+Command Line: -Dclassworlds.conf=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\bin\m2.conf -Dmaven.home=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\.. -Dlibrary.jansi.path=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\usuario_devops\Desktop\deisw-spring-onewebs org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=pe.edu.upc.onewebs.ui.LoginUsuarioTest
 
 Host: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz, 2 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1202)
 Time: Wed Nov  3 18:05:19 2021 Coordinated Universal Time elapsed time: 72.387367 seconds (0d 0h 1m 12s)
@@ -658,7 +658,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Pr
 
 VM Arguments:
 jvm_args: -Dclassworlds.conf=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\bin\m2.conf -Dmaven.home=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\.. -Dlibrary.jansi.path=C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\usuario_devops\Desktop\deisw-spring-onewebs 
-java_command: org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=pe.edu.upc.onewebs.ui.NewSeleneseIT
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=pe.edu.upc.onewebs.ui.LoginUsuarioTest
 java_class_path (initial): C:\Users\usuario_devops\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\..\boot\plexus-classworlds-2.6.0.jar
 Launcher Type: SUN_STANDARD
 
