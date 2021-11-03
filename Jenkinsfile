@@ -44,7 +44,7 @@ pipeline {
                     timeout(unit: 'SECONDS', time: 30)
                 }
             steps {
-                catchError(buildResult: 'SUCCESS'){
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE'){
                     powershell 'javaw -jar .\\target\\onewebs-1.0.jar'
                 }
             }
