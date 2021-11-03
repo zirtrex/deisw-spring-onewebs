@@ -45,7 +45,8 @@ pipeline {
                     agent any  //run this stage on any available agent
                     steps {
                         echo 'Ejecutar Spring Boot'
-                        powershell 'java -jar .\\target\\onewebs-1.0.jar'
+                        powershell 'mvn package'
+                        powershell 'java -jar ./target/onewebs-1.0.jar'
                         echo 'Prueba de Aceptacion de usuario con Selenium'
                         powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.NewSeleneseIT"'
                     }
