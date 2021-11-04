@@ -1,7 +1,5 @@
-package pe.edu.upc.onewebs.selenium.support;
+package pe.edu.upc.onewebs.ui.selenium.support;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -11,12 +9,7 @@ import org.springframework.core.Ordered;
 import org.springframework.test.context.TestContext;
 import org.springframework.test.context.support.AbstractTestExecutionListener;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
-import static pe.edu.upc.onewebs.selenium.support.CaseFormat.toLowerUnderscore;
 
 public class SeleniumTestExecutionListener extends AbstractTestExecutionListener {
 

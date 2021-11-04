@@ -1,35 +1,20 @@
 package pe.edu.upc.onewebs.ui;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import pe.edu.upc.onewebs.DeiswSpringOnewebsApplication;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import pe.edu.upc.onewebs.selenium.support.SeleniumTest;
+import pe.edu.upc.onewebs.ui.selenium.support.SeleniumTest;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@SpringBootTest(classes = DeiswSpringOnewebsApplication.class)

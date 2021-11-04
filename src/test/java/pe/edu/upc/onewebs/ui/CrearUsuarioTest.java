@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pe.edu.upc.onewebs.selenium.support.SeleniumTest;
+import pe.edu.upc.onewebs.ui.selenium.support.SeleniumTest;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@SpringBootTest(classes = DeiswSpringOnewebsApplication.class)

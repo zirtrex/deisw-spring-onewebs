@@ -1,4 +1,4 @@
-package pe.edu.upc.onewebs.selenium.support;
+package pe.edu.upc.onewebs.ui.selenium.support;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

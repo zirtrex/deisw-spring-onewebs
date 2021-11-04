@@ -20,6 +20,7 @@
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.language>java</sonar.language>
 		<sonar.binaries>${project.basedir}/../target/classes</sonar.binaries>
+		<sonar.exclusions>src/test/java/pe/edu/upc/onewebs/*</sonar.exclusions>
 	</properties>
 
 	<dependencies>
