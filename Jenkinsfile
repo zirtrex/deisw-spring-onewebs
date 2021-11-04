@@ -31,7 +31,6 @@ pipeline {
                 powershell 'mvn test -Dtest="pe.edu.upc.onewebs.integration.*Test"'
             }
         }
-
         stage ('5-Ejecutar Spring Boot y Selenium') {
             steps {
                 powershell 'mvn test -Dtest="pe.edu.upc.onewebs.ui.CrearUsuarioTest"'

@@ -46,7 +46,6 @@ public class CrearUsuarioTest {
 
     @Test
     public void testCrearUsuario() {
-
         //Aquí obtenemos la url que queremos probar
         driver.get("http://localhost:8081/onewebs/signup");
         //Esta condicion espera que la pagina cargue correctamente antes de hacer algo
