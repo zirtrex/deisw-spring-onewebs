@@ -33,7 +33,7 @@ pipeline {
         }
         stage ('5-Ejecutar Sonar') {
             steps {
-                powershell 'mvn jacoco:prepare-agent jacoco:report verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
+                powershell 'mvn jacoco:prepare-agent jacoco:report -DskipTests verify sonar:sonar -D sonar.login=df0bdafc803e3c1f1f2ea32064fbb4192c881d4d'
             }
         }
         stage ('6-Ejecutar Spring Boot y Selenium') {
